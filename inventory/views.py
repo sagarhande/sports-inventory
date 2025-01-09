@@ -16,12 +16,3 @@ class ItemViewSet(viewsets.ModelViewSet):
         except ValueError as e:
             raise serializers.ValidationError({'quantity': 'Invalid quantity value'})
         return queryset
-
-    def handle_exception(self, exc):
-        response = super().handle_exception(exc)
-        response.data = {
-            'error': 'Request failed',
-            'details': response.data
-        }
-        response.status_code = status.HTTP_400_BAD_REQUEST if response.status_code == 200 else response.status_code
-        return response
