@@ -1,4 +1,4 @@
-from rest_framework import viewsets, status
+from rest_framework import viewsets
 from rest_framework import serializers
 from .models import Item
 from .serializers import ItemSerializer

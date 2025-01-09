@@ -7,6 +7,8 @@ This Django project is designed to manage the inventory of sports equipment. It 
 - Docker
 - Docker Compose
 
+Reference: https://docs.docker.com/compose/install/
+
 ## Running the Project
 
 To get the project up and running, follow these steps:
@@ -34,21 +36,19 @@ The project includes the following REST API endpoints for managing inventory ite
 
 ## Running Tests
 
-To run tests within the Docker container, use the following command:
+To run tests within the Docker container, go to `web` container terminal and use below command:
 
 ```bash
-docker-compose run web sh -c "python manage.py inventory.tests"
+python manage.py test inventory.tests
 ```
 
 
-This command initiates the Django test runner inside the `web` service container.
-
 ## Running the Python Script for Zero Quantity Items
 
-There is a Python script included in the project that retrieves all inventory items with a quantity of 0 and saves the output to a file in the `data` folder. To execute this script, run the following command:
+There is a Python script included in the project that retrieves all inventory items with a quantity of 0 and saves the output to a file in the `data` folder. To execute this script, go to `web` container terminal and use below command:
 
 ```bash
-docker-compose run web sh -c "python scripts/get_zero_quantity_items.py"
+python scripts/get_zero_quantity_items.py
 ```
 
 ## Data Persistence
